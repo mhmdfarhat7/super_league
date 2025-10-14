@@ -1,0 +1,50 @@
+:root {
+  --cl-bg: #0a1034;
+  --cl-bg-2: #0e1148;
+  --cl-primary: #4f46e5; /* indigo */
+  --cl-accent: #06b6d4;  /* cyan */
+  --cl-pink: #ec4899;    /* pink */
+  --cl-text: #e5e7eb;    /* zinc-200 */
+  --cl-muted: #a1a1aa;   /* zinc-400 */
+  --cl-card: rgba(255, 255, 255, 0.06);
+  --cl-stroke: rgba(255, 255, 255, 0.14);
+  --cl-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--cl-text);
+  background-color: var(--cl-bg);
+  background-image:
+    radial-gradient(1000px 600px at 10% -10%, rgba(79,70,229,0.25), transparent 60%),
+    radial-gradient(800px 500px at 90% 10%, rgba(6,182,212,0.18), transparent 60%),
+    url('/images/ucl-bg.jpg');
+  background-size: cover, cover, cover;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+/* Utility */
+.cl-card {
+  background: var(--cl-card);
+  border: 1px solid var(--cl-stroke);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+}
+
+/* Headings with gradient tint */
+.cl-gradient-text {
+  background: linear-gradient(90deg, var(--cl-accent), var(--cl-primary) 50%, var(--cl-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Links inherit theme */
+a { color: var(--cl-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }

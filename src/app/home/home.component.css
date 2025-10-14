@@ -1,0 +1,74 @@
+.home {
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.btn {
+  position: relative;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--cl-stroke);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cl-text);
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #020268, #1100ff);
+  color: #fff;
+  border: none;
+  box-shadow: var(--cl-shadow), 0 0 0 1px rgba(236, 231, 231, 0.06) inset;
+}
+
+.btn.primary:hover {
+  box-shadow: 0 16px 36px rgba(79, 70, 229, 0.55);
+}
+
+.btn.danger {
+  background: linear-gradient(135deg, #770505, #ff0000);
+  color: #fff;
+  border: none;
+  box-shadow: 0 12px 28px rgba(236, 72, 153, 0.4);
+}
+
+.btn.danger:hover {
+  box-shadow: 0 16px 36px rgba(236, 72, 153, 0.55);
+}
+
+.btn.options {
+  background: linear-gradient(135deg, #363636, #666565);
+  color: #fff;
+  border: none;
+  box-shadow: 0 12px 28px rgba(236, 72, 153, 0.4);
+}
+
+.btn.options:hover {
+  box-shadow: 0 16px 36px rgba(236, 72, 153, 0.55);
+}
