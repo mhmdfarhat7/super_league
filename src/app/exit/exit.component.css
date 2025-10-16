@@ -1,0 +1,19 @@
+.exit {
+  margin: 2rem auto;
+  max-width: 560px;
+  text-align: center;
+}
+
+.btn.danger {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn.danger:hover {
+  background: #a93226;
+}
+

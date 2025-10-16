@@ -1,0 +1,48 @@
+<section class="options fresh">
+  <div class="options-panel cl-card">
+    <header class="panel-header">
+      <img class="icon-lg" [src]="bgMuted() ? '/images/SoundOff.jpg' : '/images/SoundOn.jpg'" [alt]="bgMuted() ? 'Sound Off' : 'Sound On'" (click)="toggleBgAudio()" appUiSound>
+      <div class="title">
+        <h2>Options</h2>
+        <p class="muted">Audio preferences</p>
+        <span class="status" [class.active]="!bgMuted()">
+          <span class="dot"></span>
+          {{ bgMuted() ? 'Muted' : 'Playing' }}
+        </span>
+      </div>
+      <button class="toggle" [class.active]="!bgMuted()" appUiSound (click)="toggleBgAudio()">{{ bgMuted() ? 'Enable Anthem' : 'Disable Anthem' }}</button>
+    </header>
+
+    <div class="panel-body">
+      <div class="group">
+        <label for="bgVol">Anthem Volume</label>
+        <div class="meter-wrap" aria-hidden="true">
+          <div class="meter-track">
+            <div class="meter-fill" [style.width.%]="bgVol()"></div>
+          </div>
+          <input id="bgVol" class="meter-input" type="range" min="0" max="100" [value]="bgVol()"
+                 (input)="onBgVol(($any($event.target).valueAsNumber || +$any($event.target).value))">
+          <div class="value-bubble" [style.left.%]="bgVol()">{{ bgVol() }}%</div>
+        </div>
+        <span class="value-chip">{{ bgVol() }}%</span>
+      </div>
+
+      <div class="group">
+        <label for="sfxVol">Effects Volume</label>
+        <div class="meter-wrap" aria-hidden="true">
+          <div class="meter-track">
+            <div class="meter-fill" [style.width.%]="sfxVol()"></div>
+          </div>
+          <input id="sfxVol" class="meter-input" type="range" min="0" max="100" [value]="sfxVol()"
+                 (input)="onSfxVol(($any($event.target).valueAsNumber || +$any($event.target).value))">
+          <div class="value-bubble" [style.left.%]="sfxVol()">{{ sfxVol() }}%</div>
+        </div>
+        <span class="value-chip">{{ sfxVol() }}%</span>
+      </div>
+    </div>
+
+    <footer class="panel-footer">
+      <a class="btn link" appUiSound routerLink="/">Back</a>
+    </footer>
+  </div>
+</section>
