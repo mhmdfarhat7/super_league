@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UiSoundDirective } from '../sound/ui-sound.directive';
+import { RouterModule } from '@angular/router';
 
 type Team = {
   id: string;
@@ -13,7 +14,7 @@ type Team = {
   standalone: true,
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.css',
-  imports: [CommonModule, UiSoundDirective]
+  imports: [CommonModule, UiSoundDirective, RouterModule]
 })
 export class TeamsComponent {
   teams: Team[] = [

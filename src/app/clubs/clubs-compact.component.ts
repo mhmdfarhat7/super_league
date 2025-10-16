@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { UiSoundDirective } from '../sound/ui-sound.directive';
 
 type Club = { id: string; name: string; badge: string };
 
@@ -9,7 +10,7 @@ type Club = { id: string; name: string; badge: string };
   standalone: true,
   templateUrl: './clubs-compact.component.html',
   styleUrl: './clubs-compact.component.css',
-  imports: [CommonModule]
+  imports: [CommonModule, RouterLink, UiSoundDirective]
 })
 export class ClubsCompactComponent {
   clubs: Club[] = [

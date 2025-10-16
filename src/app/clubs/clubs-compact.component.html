@@ -1,6 +1,7 @@
 <section class="clubs">
+  <button type="button" class="back" routerLink="/" appUiSound>← Back</button>
   <div class="grid">
-    <button class="club" *ngFor="let c of clubs" type="button">
+    <button class="club" *ngFor="let c of clubs" type="button" appUiSound>
       <img class="logo" [src]="c.badge" [alt]="c.name + ' badge'">
       <span class="label">{{ c.name }}</span>
     </button>

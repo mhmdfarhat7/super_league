@@ -28,3 +28,5 @@
 
 .panel-footer { display: none; }
 
+.back { position: absolute; left: .75rem; top: .75rem; background: rgba(255,255,255,.08); border: 1px solid var(--cl-stroke); color: var(--cl-text); border-radius: 10px; padding: .4rem .6rem; cursor: pointer; }
+

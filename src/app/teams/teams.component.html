@@ -1,4 +1,5 @@
 <section class="teams">
+  <button type="button" class="back" routerLink="/" appUiSound>← Back</button>
   <div class="grid">
     <button class="team" *ngFor="let t of teams" type="button" appUiSound>
       <img class="logo" [src]="t.badge" [alt]="t.name + ' badge'" (error)="onBadgeError(t, $event)">
