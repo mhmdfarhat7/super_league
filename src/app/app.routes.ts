@@ -4,6 +4,7 @@ import { ExitComponent } from './exit/exit.component';
 import { OptionsComponent } from './options/options.component';
 import { TeamsComponent } from './teams/teams.component';
 import { ClubsCompactComponent } from './clubs/clubs-compact.component';
+import { SceneComponent } from './scene/scene.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'exit', component: ExitComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'clubs', component: ClubsCompactComponent },
+  { path: 'scene/:id', component: SceneComponent },
 ];

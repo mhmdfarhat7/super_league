@@ -1,0 +1,10 @@
+.scene { position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden; background: #000; }
+.backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.9); animation: fadeZoom 1800ms ease forwards; transform: scale(1.12); opacity: 0; }
+.back { position: absolute; left: .75rem; top: .75rem; z-index: 2; background: rgba(255,255,255,.08); border: 1px solid var(--cl-stroke); color: var(--cl-text); border-radius: 10px; padding: .4rem .6rem; cursor: pointer; }
+
+@keyframes fadeZoom {
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+
