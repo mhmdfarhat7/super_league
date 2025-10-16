@@ -1,0 +1,30 @@
+.teams { display: grid; justify-items: center; align-content: start; height: 100dvh; overflow: hidden; padding: 3rem .5rem 0; box-sizing: border-box; position: static; }
+
+.teams-header { display: grid; gap: .25rem; }
+.teams-header h2 { margin: 0; letter-spacing: .04em; }
+.muted { color: var(--cl-muted); margin: 0; }
+
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: .4rem; align-items: stretch; height: 100%; grid-auto-rows: 1fr; overflow: hidden; padding: 1rem 0 0; box-sizing: border-box; }
+
+@media (max-width: 1023px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 639px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+.team { display: grid; grid-template-rows: 1fr auto; gap: .5rem; justify-items: center; padding: .4rem; color: var(--cl-text); background: transparent; border: none; cursor: pointer; min-width: 0; min-height: 0; position: relative; }
+.team:focus-visible { outline: 2px solid var(--cl-accent); outline-offset: 2px; border-radius: 10px; }
+
+.logo { width: clamp(96px, 14vw, 176px); height: clamp(96px, 14vw, 176px); object-fit: contain; transition: transform 140ms ease; filter: drop-shadow(0 6px 16px rgba(0,0,0,.35)); position: relative; z-index: 1; }
+.team:hover .logo, .team:focus-visible .logo { transform: scale(1.14); }
+
+@media (max-width: 639px) { .logo { width: clamp(92px, 22vw, 148px); height: clamp(92px, 22vw, 148px); } }
+
+/* Reduce sizes on shorter screens to avoid vertical overflow */
+@media (max-height: 800px) { .logo { width: 162px; height: 162px; } }
+@media (max-height: 680px) { .logo { width: 140px; height: 140px; } }
+
+/* Avoid hover scale causing overflow on short screens */
+@media (max-height: 680px) { .team:hover .logo, .team:focus-visible .logo { transform: none; } }
+
+.label { text-align: center; font-weight: 600; letter-spacing: .02em; font-size: .82rem; position: relative; z-index: 2; }
+
+.panel-footer { display: none; }
+

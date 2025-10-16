@@ -1,0 +1,10 @@
+<section class="clubs">
+  <div class="grid">
+    <button class="club" *ngFor="let c of clubs" type="button">
+      <img class="logo" [src]="c.badge" [alt]="c.name + ' badge'">
+      <span class="label">{{ c.name }}</span>
+    </button>
+  </div>
+</section>
+
+

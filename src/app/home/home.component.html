@@ -6,3 +6,10 @@
     <button type="button" class="btn danger" appUiSound (click)="onExitGame()">Exit Game</button>
   </div>
 </section>
+
+<div class="intro-overlay" *ngIf="showIntro" #introContainer>
+  <video #introVideo class="intro-video" preload="auto" playsinline (ended)="onIntroEnded()">
+    <source src="/clips/UEAF Champions League Intro.mp4" type="video/mp4">
+  </video>
+  <button type="button" class="skip-btn" (click)="skipIntro()">Skip</button>
+</div>

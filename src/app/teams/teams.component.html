@@ -1,0 +1,9 @@
+<section class="teams">
+  <div class="grid">
+    <button class="team" *ngFor="let t of teams" type="button" appUiSound>
+      <img class="logo" [src]="t.badge" [alt]="t.name + ' badge'" (error)="onBadgeError(t, $event)">
+      <span class="label">{{ t.name }}</span>
+    </button>
+  </div>
+</section>
+

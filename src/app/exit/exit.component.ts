@@ -46,5 +46,14 @@ export class ExitComponent implements OnInit {
       // Some browsers allow this self-close trick
       window.open('', '_self')?.close();
     } catch {}
+
+    try {
+      // Retry close after yielding to event loop
+      setTimeout(() => {
+        try { window.close(); } catch {}
+        try { (window.top as Window)?.close?.(); } catch {}
+        try { (window.parent as Window)?.close?.(); } catch {}
+      }, 0);
+    } catch {}
   }
 }

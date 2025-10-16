@@ -23,6 +23,7 @@
 html,
 body {
   height: 100%;
+  overflow: hidden; /* prevent page scrollbars for game layout */
 }
 
 body {

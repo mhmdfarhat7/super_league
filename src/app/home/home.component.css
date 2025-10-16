@@ -72,3 +72,34 @@
 .btn.options:hover {
   box-shadow: 0 16px 36px rgba(236, 72, 153, 0.55);
 }
+
+/* Intro overlay */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.intro-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.skip-btn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1001;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--cl-stroke);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+}
+
+.skip-btn:hover { filter: brightness(1.1); }
