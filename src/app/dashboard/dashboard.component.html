@@ -1,0 +1,307 @@
+<div class="neon-background"></div>
+<div class="dashboard neon-page-content" *ngIf="selectedClub(); else clubSelection">
+  <!-- Header with club info -->
+  <header class="dashboard-header">
+    <div class="club-info">
+      <img [src]="selectedClub()?.badge" [alt]="selectedClub()?.name + ' badge'" class="club-badge">
+      <div class="club-details">
+        <h1>{{ selectedClub()?.name }}</h1>
+        <p class="matchday">Matchday {{ currentMatchday() }} of {{ totalMatchdays() }}</p>
+      </div>
+      <button 
+        *ngIf="seasonCompleted()"
+        class="season-complete-btn" 
+        (click)="onSeasonCompleteClick()" 
+        appUiSound>
+        SEASON COMPLETE
+      </button>
+    </div>
+    <div class="header-actions">
+      <div class="coins-display">
+        <img src="/images/Super Coin.png" alt="Super Coin" class="coins-icon">
+        <span class="coins-amount">{{ gameStateService.getCoins() }}</span>
+      </div>
+      <button class="shop-btn" (click)="openShop()" appUiSound>🛒 Shop</button>
+      <button class="options-btn" routerLink="/options" appUiSound>⚙️ Options</button>
+      <button class="back-btn" routerLink="/" appUiSound>← Back to Menu</button>
+    </div>
+  </header>
+
+<!-- Season Summary Modal -->
+<div class="season-overlay" *ngIf="showSeasonSummary()">
+  <div class="season-content">
+    <h1>Season Summary</h1>
+    <div class="season-lines" *ngIf="seasonSummary() as s">
+      <div class="line">You finished <span class="accent">{{ s.position || '—' }}</span> in the table</div>
+      <div class="line">Top scorer: <span class="accent">{{ s.topScorerName }}</span> with <span class="accent">{{ s.topScorerGoals }}</span> goals</div>
+      <div class="line">Record: <span class="accent">{{ s.won }}</span>W · <span class="accent">{{ s.drawn }}</span>D · <span class="accent">{{ s.lost }}</span>L</div>
+    </div>
+    <div class="season-actions">
+      <button class="start-season-btn" (click)="startNewSeason()" appUiSound>Start New Season</button>
+      <button class="close-season-btn" (click)="showSeasonSummary.set(false)" appUiSound>Close</button>
+    </div>
+  </div>
+  
+</div>
+
+  <!-- Main content grid -->
+  <div class="dashboard-content">
+    <!-- Left column: All Players -->
+    <div class="left-column">
+      <!-- Top Scorers -->
+      <section class="top-scorers-section" *ngIf="topScorers().length > 0">
+        <h2>Top Scorers</h2>
+        <div class="scorers-container">
+          <div class="scorer-item" *ngFor="let scorer of topScorers(); let i = index" [class.legend]="isLegendScorer(scorer)">
+            <div class="scorer-rank">{{ i + 1 }}</div>
+            <div class="scorer-info">
+              <div class="scorer-name">{{ scorer.playerName }}</div>
+              <div class="scorer-club">{{ scorer.clubName }}</div>
+            </div>
+            <div class="scorer-goals">
+              <span class="goals-count">{{ scorer.goals }}</span>
+              <span class="goals-label">goals</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- All Players -->
+      <section class="players-section">
+        <div class="section-header">
+          <h2>All Players</h2>
+          <div class="drag-instructions">Drag players between sections to switch roles</div>
+        </div>
+        <div class="players-grid">
+          <!-- Starters Section -->
+          <div class="starters-section">
+            <h3 class="section-title">Starting XI</h3>
+            <div class="starters-grid" 
+                 [class.rearranging]="isGridRearranging('starters')"
+                 (dragover)="onDragOver($event)" 
+                 (drop)="onDrop($event, 'starter')"
+                 (dragenter)="onDragEnter($event, 'starter')"
+                 (dragleave)="onDragLeave($event, 'starter')">
+              <div class="player-card" 
+                   *ngFor="let player of getStarters()" 
+                   [class.starter]="player.role === 'starter'" 
+                   [class.legend]="isLegend(player)"
+                   [class.drag-over-player]="isDragOverPlayer(player)"
+                   [class.swap-moving]="isPlayerSwapping(player.id)"
+                   [draggable]="true"
+                   (dragstart)="onDragStart($event, player)"
+                   (dragend)="onDragEnd($event)"
+                   (dragover)="onPlayerDragOver($event, player)"
+                   (drop)="onPlayerDrop($event, player)"
+                   (dragenter)="onPlayerDragEnter($event, player)"
+                   (dragleave)="onPlayerDragLeave($event, player)">
+                <div class="player-name">{{ player.name }}</div>
+                <div class="player-role" [class.starter]="player.role === 'starter'" [class.sub]="player.role === 'sub'">{{ player.role }}</div>
+                <div class="player-position" [class]="getPlayerPositionClass(player)">{{ getPlayerPosition(player) }}</div>
+                <div class="player-stats">
+                  <span class="stat">ATT {{ player.att }}</span>
+                  <span class="stat">MID {{ player.mid }}</span>
+                  <span class="stat">DEF {{ player.def }}</span>
+                </div>
+                <div class="swap-indicator" *ngIf="isDragOverPlayer(player)">
+                  <div class="swap-text">SWAP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Border Separator -->
+          <div class="players-divider"></div>
+          
+          <!-- Subs Section -->
+          <div class="subs-section">
+            <h3 class="section-title">Substitutes</h3>
+            <div class="subs-grid" 
+                 [class.rearranging]="isGridRearranging('subs')"
+                 (dragover)="onDragOver($event)" 
+                 (drop)="onDrop($event, 'sub')"
+                 (dragenter)="onDragEnter($event, 'sub')"
+                 (dragleave)="onDragLeave($event, 'sub')">
+              <div class="player-card" 
+                   *ngFor="let player of getSubs()" 
+                   [class.starter]="player.role === 'starter'" 
+                   [class.legend]="isLegend(player)"
+                   [class.drag-over-player]="isDragOverPlayer(player)"
+                   [class.swap-moving-reverse]="isPlayerSwapping(player.id)"
+                   [draggable]="true"
+                   (dragstart)="onDragStart($event, player)"
+                   (dragend)="onDragEnd($event)"
+                   (dragover)="onPlayerDragOver($event, player)"
+                   (drop)="onPlayerDrop($event, player)"
+                   (dragenter)="onPlayerDragEnter($event, player)"
+                   (dragleave)="onPlayerDragLeave($event, player)">
+                <div class="player-name">{{ player.name }}</div>
+                <div class="player-role" [class.starter]="player.role === 'starter'" [class.sub]="player.role === 'sub'">{{ player.role }}</div>
+                <div class="player-position" [class]="getPlayerPositionClass(player)">{{ getPlayerPosition(player) }}</div>
+                <div class="player-stats">
+                  <span class="stat">ATT {{ player.att }}</span>
+                  <span class="stat">MID {{ player.mid }}</span>
+                  <span class="stat">DEF {{ player.def }}</span>
+                </div>
+                <div class="swap-indicator" *ngIf="isDragOverPlayer(player)">
+                  <div class="swap-text">SWAP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right column: Next Match and League Table -->
+    <div class="right-column">
+      <!-- Next Match -->
+      <section class="next-match-section" *ngIf="nextMatch()">
+        <h2>Next Match</h2>
+        <div class="match-card">
+          <div class="match-teams">
+            <div class="team" [class.home]="nextMatch()?.homeTeam === selectedClub()?.id">
+              <img [src]="getClubBadge(nextMatch()?.homeTeam || '')" [alt]="getClubName(nextMatch()?.homeTeam || '')">
+              <span>{{ getClubName(nextMatch()?.homeTeam || '') }}</span>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team" [class.away]="nextMatch()?.awayTeam === selectedClub()?.id">
+              <img [src]="getClubBadge(nextMatch()?.awayTeam || '')" [alt]="getClubName(nextMatch()?.awayTeam || '')">
+              <span>{{ getClubName(nextMatch()?.awayTeam || '') }}</span>
+            </div>
+          </div>
+          <button class="start-game-btn" (click)="onStartGame()" appUiSound>
+            Start Game
+          </button>
+        </div>
+      </section>
+
+      <!-- League Table -->
+      <section class="league-table-section">
+        <h2>League Table</h2>
+        <div class="table-container">
+          <table class="league-table">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Team</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let entry of leagueTable(); let i = index" 
+                  [class.selected-team]="entry.team === selectedClub()?.id">
+                <td>{{ i + 1 }}</td>
+                <td class="team-cell">
+                  <img [src]="getClubBadge(entry.team)" [alt]="getClubName(entry.team)" class="team-badge">
+                  {{ getClubName(entry.team) }}
+                </td>
+                <td>{{ entry.played }}</td>
+                <td>{{ entry.won }}</td>
+                <td>{{ entry.drawn }}</td>
+                <td>{{ entry.lost }}</td>
+                <td>{{ entry.goalsFor }}</td>
+                <td>{{ entry.goalsAgainst }}</td>
+                <td [class.positive]="entry.goalDifference > 0" [class.negative]="entry.goalDifference < 0">
+                  {{ entry.goalDifference > 0 ? '+' : '' }}{{ entry.goalDifference }}
+                </td>
+                <td class="points">{{ entry.points }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Recent Results -->
+      <section class="recent-results-section" *ngIf="recentResults().length > 0">
+        <h2>Recent Results</h2>
+        <div class="results-container">
+          <div class="result-item" *ngFor="let match of recentResults()">
+            <div class="result-teams">
+              <div class="team-result">
+                <img [src]="getClubBadge(match.homeTeam)" [alt]="getClubName(match.homeTeam)" class="team-badge-small">
+                <span class="team-name">{{ getClubName(match.homeTeam) }}</span>
+              </div>
+              <div class="score">
+                <span class="home-score">{{ match.homeScore }}</span>
+                <span class="separator">-</span>
+                <span class="away-score">{{ match.awayScore }}</span>
+              </div>
+              <div class="team-result">
+                <span class="team-name">{{ getClubName(match.awayTeam) }}</span>
+                <img [src]="getClubBadge(match.awayTeam)" [alt]="getClubName(match.awayTeam)" class="team-badge-small">
+              </div>
+            </div>
+            <div class="match-info">
+              <span class="matchday">Matchday {{ match.matchday }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Shop Modal -->
+<div class="shop-modal" *ngIf="showShop()" (click)="closeShop($event)">
+  <div class="shop-content" (click)="$event.stopPropagation()">
+    <div class="shop-header">
+      <h2>{{ selectedClub()?.name }} Legends Shop</h2>
+      <button class="close-btn" (click)="closeShop()" appUiSound>✕</button>
+    </div>
+    
+    <div class="shop-body">
+      <div class="coins-info">
+        <img src="/images/Super Coin.png" alt="Super Coin" class="coins-icon">
+        <span class="coins-amount">{{ gameStateService.getCoins() }} Super Coin</span>
+      </div>
+      
+      <div class="legends-grid" *ngIf="legends().length > 0">
+        <div class="legend-card" *ngFor="let legend of legends()">
+          <div class="legend-name">{{ legend.name }}</div>
+          <div class="legend-position" [class]="'position-' + legend.position.toLowerCase()">
+            {{ legend.position }}
+          </div>
+          <div class="legend-stats">
+            <span class="stat">ATT {{ legend.att }}</span>
+            <span class="stat">MID {{ legend.mid }}</span>
+            <span class="stat">DEF {{ legend.def }}</span>
+          </div>
+          <div class="legend-price">{{ legend.price }} Super Coin</div>
+          <button 
+            class="buy-btn" 
+            [disabled]="gameStateService.getCoins() < legend.price"
+            (click)="buyLegend(legend)"
+            appUiSound>
+            {{ gameStateService.getCoins() >= legend.price ? 'Buy' : 'Not enough Super Coin' }}
+          </button>
+        </div>
+      </div>
+      
+      <div class="no-legends" *ngIf="legends().length === 0">
+        <p>No legends available for this club.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Club Selection Template -->
+<ng-template #clubSelection>
+  <div class="club-selection">
+    <h1>Select Your Club</h1>
+    <div class="clubs-grid">
+      <button class="club-card" *ngFor="let club of gameStateService.clubs" 
+              (click)="selectClub(club)" appUiSound>
+        <img [src]="club.badge" [alt]="club.name + ' badge'" class="club-badge">
+        <span class="club-name">{{ club.name }}</span>
+      </button>
+    </div>
+  </div>
+</ng-template>

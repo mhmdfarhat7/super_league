@@ -1,0 +1,314 @@
+{
+    "barcelona": {
+      "name": "Barcelona",
+      "players": [
+        { "name": "Marc-André ter Stegen", "role": "starter", "att": 40, "mid": 43, "def": 86, "position": "GK" },
+        { "name": "Jules Koundé", "role": "starter", "att": 70, "mid": 75, "def": 86, "position": "DEF" },
+        { "name": "Ronald Araújo", "role": "starter", "att": 62, "mid": 62, "def": 82, "position": "DEF" },
+        { "name": "Alejandro Balde", "role": "starter", "att": 72, "mid": 76, "def": 81, "position": "DEF" },
+        { "name": "Pau Cubarsi", "role": "starter", "att": 64, "mid": 72, "def": 82, "position": "DEF" },
+        { "name": "Frenkie de Jong", "role": "starter", "att": 80, "mid": 85, "def": 77, "position": "MID" },
+        { "name": "Pablo Gavi", "role": "starter", "att": 78, "mid": 81, "def": 68, "position": "MID" },
+        { "name": "Pedri", "role": "starter", "att": 83, "mid": 87, "def": 76, "position": "MID" },
+        { "name": "Lamine Yamal", "role": "starter", "att": 86, "mid": 87, "def": 55, "position": "ATT" },
+        { "name": "Robert Lewandowski", "role": "starter", "att": 88, "mid": 80, "def": 49, "position": "ATT" },
+        { "name": "Raphinha", "role": "starter", "att": 87, "mid": 85, "def": 55, "position": "ATT" },
+        { "name": "Ferran Torres", "role": "sub", "att": 81, "mid": 80, "def": 40, "position": "ATT" },
+        { "name": "Fermin Lopez", "role": "sub", "att": 78, "mid": 77, "def": 61, "position": "MID" },
+        { "name": "Andreas Christensen", "role": "sub", "att": 55, "mid": 68, "def": 79, "position": "DEF" },
+        { "name": "Dani Olmo", "role": "sub", "att": 83, "mid": 84, "def": 50, "position": "MID" }
+      ],
+      "legends": [
+        { "name": "Victor Valdés", "position": "GK", "att": 35, "mid": 40, "def": 92, "price": 500 },
+        { "name": "Carles Puyol", "position": "DEF", "att": 65, "mid": 70, "def": 95, "price": 600 },
+        { "name": "Xavi Hernández", "position": "MID", "att": 85, "mid": 95, "def": 80, "price": 800 },
+        { "name": "Lionel Messi", "position": "ATT", "att": 98, "mid": 95, "def": 65, "price": 1000 }
+      ]
+    },
+    "real-madrid": {
+      "name": "Real Madrid",
+      "players": [
+        { "name": "Thibaut Courtois", "role": "starter", "att": 37, "mid": 30, "def": 89, "position": "GK" },
+        { "name": "Dani Carvajal", "role": "starter", "att": 74, "mid": 79, "def": 84, "position": "DEF" },
+        { "name": "Antonio Rüdiger", "role": "starter", "att": 67, "mid": 71, "def": 85, "position": "DEF" },
+        { "name": "Éder Militão", "role": "starter", "att": 66, "mid": 69, "def": 83, "position": "DEF" },
+        { "name": "Ferland Mendy", "role": "starter", "att": 74, "mid": 44, "def": 80, "position": "DEF" },
+        { "name": "Aurélien Tchouaméni", "role": "starter", "att": 75, "mid": 80, "def": 82, "position": "MID" },
+        { "name": "Federico Valverde", "role": "starter", "att": 87, "mid": 83, "def": 82, "position": "MID" },
+        { "name": "Jude Bellingham", "role": "starter", "att": 88, "mid": 85, "def": 78, "position": "MID" },
+        { "name": "Vinícius Júnior", "role": "starter", "att": 87, "mid": 84, "def": 35, "position": "ATT" },
+        { "name": "Rodrygo", "role": "starter", "att": 83, "mid": 81, "def": 37, "position": "ATT" },
+        { "name": "Kylian Mbappé", "role": "starter", "att": 90, "mid": 85, "def": 44, "position": "ATT" },
+        { "name": "Eduardo Camavinga", "role": "sub", "att": 78, "mid": 82, "def": 78, "position": "MID" },
+        { "name": "Arda Güler", "role": "sub", "att": 79, "mid": 82, "def": 50, "position": "MID" },
+        { "name": "David Alaba", "role": "sub", "att": 76, "mid": 80, "def": 81, "position": "DEF" },
+        { "name": "Brahim Díaz", "role": "sub", "att": 80, "mid": 80, "def": 34, "position": "ATT" }
+      ],
+      "legends": [
+        { "name": "Iker Casillas", "position": "GK", "att": 30, "mid": 35, "def": 95, "price": 500 },
+        { "name": "Sergio Ramos", "position": "DEF", "att": 70, "mid": 75, "def": 96, "price": 700 },
+        { "name": "Zinedine Zidane", "position": "MID", "att": 90, "mid": 96, "def": 75, "price": 800 },
+        { "name": "Cristiano Ronaldo", "position": "ATT", "att": 97, "mid": 90, "def": 70, "price": 1000 }
+      ]
+    },
+    "arsenal": {
+      "name": "Arsenal",
+      "players": [
+        { "name": "David Raya", "role": "starter", "att": 46, "mid": 46, "def": 87, "position": "GK" },
+        { "name": "Ben White", "role": "starter", "att": 63, "mid": 74, "def": 82, "position": "DEF" },
+        { "name": "William Saliba", "role": "starter", "att": 62, "mid": 69, "def": 86, "position": "DEF" },
+        { "name": "Gabriel Magalhães", "role": "starter", "att": 59, "mid": 65, "def": 87, "position": "DEF" },
+        { "name": "Riccardo Calafiori", "role": "starter", "att": 71, "mid": 72, "def": 77, "position": "DEF" },
+        { "name": "Declan Rice", "role": "starter", "att": 78, "mid": 83, "def": 85, "position": "MID" },
+        { "name": "Martin Ødegaard", "role": "starter", "att": 83, "mid": 87, "def": 64, "position": "MID" },
+        { "name": "Martín Zubimendi", "role": "starter", "att": 75, "mid": 81, "def": 79, "position": "MID" },
+        { "name": "Bukayo Saka", "role": "starter", "att": 84, "mid": 86, "def": 61, "position": "ATT" },
+        { "name": "viktor gyökeres", "role": "starter", "att": 85, "mid": 75, "def": 43, "position": "ATT" },
+        { "name": "Gabriel Martinelli", "role": "starter", "att": 81, "mid": 77, "def": 50, "position": "ATT" },
+        { "name": "Leandro Trossard", "role": "sub", "att": 82, "mid": 81, "def": 34, "position": "ATT" },
+        { "name": "Eberechi Eze", "role": "sub", "att": 82, "mid": 82, "def": 52, "position": "ATT" },
+        { "name": "Lewis-Skelly", "role": "sub", "att": 72, "mid": 74, "def": 77, "position": "DEF" },
+        { "name": "Mikel Merino", "role": "sub", "att": 79, "mid": 79, "def": 81, "position": "MID" }
+      ],
+      "legends": [
+        { "name": "David Seaman", "position": "GK", "att": 35, "mid": 40, "def": 90, "price": 500 },
+        { "name": "Tony Adams", "position": "DEF", "att": 60, "mid": 65, "def": 92, "price": 600 },
+        { "name": "Patrick Vieira", "position": "MID", "att": 80, "mid": 90, "def": 85, "price": 800 },
+        { "name": "Thierry Henry", "position": "ATT", "att": 95, "mid": 88, "def": 60, "price": 1000 }
+      ]
+    },
+    "chelsea": {
+      "name": "Chelsea",
+      "players": [
+        { "name": "Robert Sánchez", "role": "starter", "att": 40, "mid": 39, "def": 79, "position": "GK" },
+        { "name": "Reece James", "role": "starter", "att": 75, "mid": 78, "def": 80, "position": "DEF" },
+        { "name": "Trevoh Chalobah", "role": "starter", "att": 63, "mid": 69, "def": 79, "position": "DEF" },
+        { "name": "Levi Colwill", "role": "starter", "att": 62, "mid": 71, "def": 80, "position": "DEF" },
+        { "name": "Marc Cucurella", "role": "starter", "att": 75, "mid": 79, "def": 83, "position": "DEF" },        
+        { "name": "Moisés Caicedo", "role": "starter", "att": 74, "mid": 81, "def": 85, "position": "MID" },
+        { "name": "Enzo Fernández", "role": "starter", "att": 79, "mid": 83, "def": 73, "position": "MID" },
+        { "name": "Pedro Neto", "role": "starter", "att": 80, "mid": 76, "def": 43, "position": "ATT" },
+        { "name": "Cole Palmer", "role": "starter", "att": 84, "mid": 85, "def": 51, "position": "MID" },
+        { "name": "João Pedro", "role": "starter", "att": 85, "mid": 82, "def": 48, "position": "ATT" },
+        { "name": "Estêvão", "role": "starter", "att": 80, "mid": 76, "def": 37, "position": "ATT" },
+        { "name": "Malo Gusto", "role": "sub", "att": 70, "mid": 75, "def": 77, "position": "DEF" },
+        { "name": "Jamie Gittens", "role": "sub", "att": 79, "mid": 72, "def": 37, "position": "ATT" },
+        { "name": "Liam Delap", "role": "sub", "att": 78, "mid": 66, "def": 39, "position": "ATT" },
+        { "name": "Alejandro Garnacho", "role": "sub", "att": 79, "mid": 75, "def": 40, "position": "ATT" }
+      ],
+      "legends": [
+        { "name": "Petr Čech", "position": "GK", "att": 30, "mid": 35, "def": 94, "price": 500 },
+        { "name": "John Terry", "position": "DEF", "att": 65, "mid": 70, "def": 95, "price": 600 },
+        { "name": "Frank Lampard", "position": "MID", "att": 88, "mid": 90, "def": 75, "price": 800 },
+        { "name": "Didier Drogba", "position": "ATT", "att": 92, "mid": 80, "def": 70, "price": 1000 }
+      ]
+    },
+    "man-city": {
+      "name": "Man City",
+      "players": [
+        { "name": "Gianluigi Donnarumma", "role": "starter", "att": 40, "mid": 35, "def": 89, "position": "GK" },
+        { "name": "Abdukodir Khusanov", "role": "starter", "att": 59, "mid": 61, "def": 76, "position": "DEF" },
+        { "name": "Rúben Dias", "role": "starter", "att": 58, "mid": 68, "def": 85, "position": "DEF" },
+        { "name": "Joško Gvardiol", "role": "starter", "att": 74, "mid": 75, "def": 83, "position": "DEF" },
+        { "name": "Nathan Aké", "role": "starter", "att": 66, "mid": 72, "def": 82, "position": "DEF" },
+        { "name": "Rodri", "role": "starter", "att": 82, "mid": 86, "def": 88, "position": "MID" },
+        { "name": "Tijjani Reijnders", "role": "starter", "att": 84, "mid": 82, "def": 75, "position": "MID" },
+        { "name": "Bernardo Silva", "role": "starter", "att": 82, "mid": 85, "def": 68, "position": "MID" },
+        { "name": "Phil Foden", "role": "starter", "att": 85, "mid": 84, "def": 55, "position": "MID" },
+        { "name": "Erling Haaland", "role": "starter", "att": 89, "mid": 73, "def": 52, "position": "ATT" },
+        { "name": "Jérémy Doku", "role": "starter", "att": 80, "mid": 77, "def": 37, "position": "ATT" },
+        { "name": "Omar Marmoush", "role": "sub", "att": 85, "mid": 79, "def": 40, "position": "ATT" },
+        { "name": "Rayan Cherki", "role": "sub", "att": 80, "mid": 82, "def": 28, "position": "ATT" },
+        { "name": "John Stones", "role": "sub", "att": 68, "mid": 74, "def": 82, "position": "DEF" },
+        { "name": "Mateo Kovačić", "role": "sub", "att": 79, "mid": 81, "def": 72, "position": "MID" }
+      ],
+      "legends": [
+        { "name": "Joe Hart", "position": "GK", "att": 35, "mid": 40, "def": 88, "price": 500 },
+        { "name": "Vincent Kompany", "position": "DEF", "att": 70, "mid": 75, "def": 92, "price": 600 },
+        { "name": "David Silva", "position": "MID", "att": 85, "mid": 95, "def": 70, "price": 800 },
+        { "name": "Sergio Agüero", "position": "ATT", "att": 93, "mid": 85, "def": 55, "price": 1000 }
+      ]
+    },
+    "man-united": {
+      "name": "Man United",
+      "players": [
+        { "name": "Senne Lammens", "role": "starter", "att": 26, "mid": 27, "def": 79, "position": "GK" },
+        { "name": "Diogo Dalot", "role": "starter", "att": 74, "mid": 74, "def": 78, "position": "DEF" },
+        { "name": "Matthijs de Ligt", "role": "starter", "att": 64, "mid": 64, "def": 82, "position": "DEF" },
+        { "name": "Lisandro Martínez", "role": "starter", "att": 69, "mid": 74, "def": 81, "position": "DEF" },
+        { "name": "Luke Shaw", "role": "starter", "att": 69, "mid": 75, "def": 78, "position": "DEF" },
+        { "name": "Casemiro", "role": "starter", "att": 70, "mid": 74, "def": 80, "position": "MID" },
+        { "name": "Bruno Fernandes", "role": "starter", "att": 83, "mid": 86, "def": 66, "position": "MID" },
+        { "name": "Mason Mount", "role": "starter", "att": 76, "mid": 78, "def": 61, "position": "MID" },
+        { "name": "Matheus Cunha", "role": "starter", "att": 82, "mid": 80, "def": 49, "position": "ATT" },
+        { "name": "Bryan Mbeumo", "role": "starter", "att": 83, "mid": 80, "def": 51, "position": "ATT" },
+        { "name": "Benjamin Šeško", "role": "starter", "att": 79, "mid": 69, "def": 50, "position": "ATT" },
+        { "name": "Amad Diallo", "role": "sub", "att": 79, "mid": 77, "def": 53, "position": "ATT" },
+        { "name": "Harry Maguire", "role": "sub", "att": 61, "mid": 67, "def": 80, "position": "MID" },
+        { "name": "Noussair Mazraoui", "role": "sub", "att": 74, "mid": 77, "def": 79, "position": "DEF" },
+        { "name": "Joshua Zirkzee", "role": "sub", "att": 77, "mid": 76, "def": 47, "position": "MID" }
+      ],
+      "legends": [
+        { "name": "Peter Schmeichel", "position": "GK", "att": 30, "mid": 35, "def": 93, "price": 500 },
+        { "name": "Rio Ferdinand", "position": "DEF", "att": 65, "mid": 70, "def": 90, "price": 600 },
+        { "name": "Paul Scholes", "position": "MID", "att": 85, "mid": 92, "def": 75, "price": 800 },
+        { "name": "Wayne Rooney", "position": "ATT", "att": 91, "mid": 85, "def": 70, "price": 1000 }
+      ]
+    },
+    "liverpool": {
+      "name": "Liverpool",
+      "players": [
+        { "name": "Alisson", "role": "starter", "att": 42, "mid": 44, "def": 89, "position": "GK" },
+        { "name": "Jeremy Frimpong", "role": "starter", "att": 78, "mid": 77, "def": 81, "position": "DEF" },
+        { "name": "Virgil van Dijk", "role": "starter", "att": 67, "mid": 71, "def": 89, "position": "DEF" },
+        { "name": "Ibrahima Konaté", "role": "starter", "att": 59, "mid": 66, "def": 85, "position": "DEF" },
+        { "name": "Andy Robertson", "role": "starter", "att": 73, "mid": 78, "def": 81, "position": "DEF" },
+        { "name": "Alexis Mac Allister", "role": "starter", "att": 83, "mid": 85, "def": 76, "position": "MID" },
+        { "name": "Dominik Szoboszlai", "role": "starter", "att": 81, "mid": 82, "def": 67, "position": "MID" },
+        { "name": "Florian Wirtz", "role": "starter", "att": 86, "mid": 88, "def": 54, "position": "MID" },
+        { "name": "Mohamed Salah", "role": "starter", "att": 89, "mid": 86, "def": 50, "position": "ATT" },
+        { "name": "Alexander Isak", "role": "starter", "att": 87, "mid": 77, "def": 45, "position": "ATT" },
+        { "name": "Cody Gakpo", "role": "starter", "att": 82, "mid": 80, "def": 50, "position": "ATT" },
+        { "name": "Hugo Ekitiké", "role": "sub", "att": 81, "mid": 77, "def": 39, "position": "ATT" },
+        { "name": "Ryan Gravenerch", "role": "sub", "att": 79, "mid": 83, "def": 81, "position": "MID" },
+        { "name": "Milos Kerkez", "role": "sub", "att": 75, "mid": 75, "def": 81, "position": "MID" },
+        { "name": "Federico Chiesa", "role": "sub", "att": 82, "mid": 78, "def": 48, "position": "ATT" }
+      ],
+      "legends": [
+        { "name": "Bruce Grobbelaar", "position": "GK", "att": 35, "mid": 40, "def": 88, "price": 500 },
+        { "name": "Jamie Carragher", "position": "DEF", "att": 60, "mid": 65, "def": 90, "price": 600 },
+        { "name": "Steven Gerrard", "position": "MID", "att": 85, "mid": 92, "def": 80, "price": 800 },
+        { "name": "Kenny Dalglish", "position": "ATT", "att": 92, "mid": 88, "def": 65, "price": 1000 }
+      ]
+    },
+    "tottenham": {
+      "name": "Tottenham",
+      "players": [
+        { "name": "Guglielmo Vicario", "role": "starter", "att": 40, "mid": 43, "def": 83, "position": "GK" },
+        { "name": "Pedro Porro", "role": "starter", "att": 77, "mid": 79, "def": 80, "position": "DEF" },
+        { "name": "Cristian Romero", "role": "starter", "att": 60, "mid": 63, "def": 83, "position": "DEF" },
+        { "name": "Micky van de Ven", "role": "starter", "att": 66, "mid": 67, "def": 82, "position": "DEF" },
+        { "name": "Destiny Udogie", "role": "starter", "att": 75, "mid": 74, "def": 79, "position": "DEF" },
+        { "name": "Rodrigo Bentancur", "role": "starter", "att": 72, "mid": 77, "def": 78, "position": "MID" },
+        { "name": "Xavi Simons", "role": "starter", "att": 82, "mid": 82, "def": 62, "position": "MID" },
+        { "name": "James Maddison", "role": "starter", "att": 82, "mid": 85, "def": 57, "position": "MID" },
+        { "name": "Dejan Kulusevski", "role": "starter", "att": 81, "mid": 83, "def": 64, "position": "ATT" },
+        { "name": "Randal Kolo Muani", "role": "starter", "att": 80, "mid": 74, "def": 42, "position": "ATT" },
+        { "name": "Dominik Solanke", "role": "starter", "att": 79, "mid": 70, "def": 47, "position": "ATT" },
+        { "name": "Brennan Johnson", "role": "sub", "att": 78, "mid": 73, "def": 45, "position": "ATT" },
+        { "name": "Mohammed Kudus", "role": "sub", "att": 81, "mid": 77, "def": 60, "position": "MID" },
+        { "name": "João Palhinha", "role": "sub", "att": 69, "mid": 72, "def": 83, "position": "MID" },
+        { "name": "Richarlison", "role": "sub", "att": 77, "mid": 73, "def": 57, "position": "DEF" }
+      ],
+      "legends": [
+        { "name": "Pat Jennings", "position": "GK", "att": 35, "mid": 40, "def": 90, "price": 500 },
+        { "name": "Ledley King", "position": "DEF", "att": 65, "mid": 70, "def": 92, "price": 600 },
+        { "name": "Heung Min Son", "position": "MID", "att": 89, "mid": 85, "def": 75, "price": 600 },
+        { "name": "Harry Kane", "position": "ATT", "att": 91, "mid": 85, "def": 60, "price": 1000 }
+      ]
+    },
+    "bayern": {
+      "name": "Bayern Munich",
+      "players": [
+        { "name": "Manuel Neuer", "role": "starter", "att": 40, "mid": 47, "def": 85, "position": "GK" },
+        { "name": "Konrad Laimer", "role": "starter", "att": 75, "mid": 75, "def": 81, "position": "DEF" },
+        { "name": "Jonathan tah", "role": "starter", "att": 54, "mid": 61, "def": 86, "position": "DEF" },
+        { "name": "Dayot Upamecano", "role": "starter", "att": 64, "mid": 68, "def": 84, "position": "DEF" },
+        { "name": "Alphonso Davies", "role": "starter", "att": 80, "mid": 80, "def": 82, "position": "DEF" },
+        { "name": "Leon Goretzka", "role": "starter", "att": 79, "mid": 79, "def": 80, "position": "MID" },
+        { "name": "Jamal Musiala", "role": "starter", "att": 86, "mid": 84, "def": 65, "position": "MID" },
+        { "name": "Joshua Kimmich", "role": "starter", "att": 81, "mid": 87, "def": 84, "position": "MID" },
+        { "name": "Michael Olise", "role": "starter", "att": 83, "mid": 84, "def": 52, "position": "ATT" },
+        { "name": "Harry Kane", "role": "starter", "att": 89, "mid": 81, "def": 54, "position": "ATT" },
+        { "name": "Luis Díaz", "role": "starter", "att": 83, "mid": 79, "def": 49, "position": "ATT" },
+        { "name": "Serge Gnabry", "role": "sub", "att": 82, "mid": 80, "def": 46, "position": "ATT" },
+        { "name": "Kim Min Jae", "role": "sub", "att": 58, "mid": 60, "def": 82, "position": "DEF" },
+        { "name": "Raphaël Guerreiro", "role": "sub", "att": 83, "mid": 83, "def": 77, "position": "DEF" },
+        { "name": "Nikolas Jackson", "role": "sub", "att": 78, "mid": 72, "def": 46, "position": "ATT" }
+      ],
+      "legends": [
+        { "name": "Oliver Kahn", "position": "GK", "att": 30, "mid": 35, "def": 95, "price": 500 },
+        { "name": "Franz Beckenbauer", "position": "DEF", "att": 75, "mid": 85, "def": 95, "price": 600 },
+        { "name": "Bastian Schweinsteiger", "position": "MID", "att": 80, "mid": 90, "def": 85, "price": 800 },
+        { "name": "Gerd Müller", "position": "ATT", "att": 95, "mid": 80, "def": 60, "price": 1000 }
+      ]
+    },
+    "inter-milan": {
+      "name": "Inter Milan",
+      "players": [
+        { "name": "Yann Sommer", "role": "starter", "att": 41, "mid": 37, "def": 87, "position": "GK" },
+        { "name": "Denzel Dumfries", "role": "starter", "att": 76, "mid": 75, "def": 83, "position": "DEF" },
+        { "name": "Francesco Acerbi", "role": "starter", "att": 58, "mid": 65, "def": 85, "position": "DEF" },
+        { "name": "Alessandro Bastoni", "role": "starter", "att": 65, "mid": 75, "def": 86, "position": "DEF" },
+        { "name": "Stefan de Vrij", "role": "starter", "att": 70, "mid": 72, "def": 78, "position": "DEF" },
+        { "name": "Federico Dimarco", "role": "starter", "att": 81, "mid": 82, "def": 83, "position": "DEF" },
+        { "name": "Nicolò Barella", "role": "starter", "att": 83, "mid": 85, "def": 79, "position": "MID" },
+        { "name": "Hakan ÇalhanoĞlu", "role": "starter", "att": 81, "mid": 84, "def": 81, "position": "MID" },
+        { "name": "Henrikh Mkhitaryan", "role": "starter", "att": 80, "mid": 81, "def": 72, "position": "MID" },
+        { "name": "Marcus Thuram", "role": "starter", "att": 83, "mid": 77, "def": 55, "position": "ATT" },
+        { "name": "Lautaro Martínez", "role": "starter", "att": 88, "mid": 78, "def": 57, "position": "ATT" },
+        { "name": "Manuel Akanji", "role": "sub", "att": 63, "mid": 70, "def": 81, "position": "DEF" },
+        { "name": "Matteo Darmian", "role": "sub", "att": 72, "mid": 74, "def": 80, "position": "DEF" },
+        { "name": "Davide Frattesi", "role": "sub", "att": 80, "mid": 79, "def": 72, "position": "MID" },
+        { "name": "Luis Henrique", "role": "sub", "att": 77, "mid": 72, "def": 57, "position": "ATT" }
+      ],
+      "legends": [
+        { "name": "Walter Zenga", "position": "GK", "att": 35, "mid": 40, "def": 92, "price": 500 },
+        { "name": "Giuseppe Bergomi", "position": "DEF", "att": 65, "mid": 70, "def": 93, "price": 600 },
+        { "name": "Lothar Matthäus", "position": "MID", "att": 85, "mid": 92, "def": 85, "price": 800 },
+        { "name": "Ronaldo", "position": "ATT", "att": 96, "mid": 85, "def": 60, "price": 1000 }
+      ]
+    },
+    "ac-milan": {
+      "name": "AC Milan",
+      "players": [
+        { "name": "Mike Maignan", "role": "starter", "att": 47, "mid": 48, "def": 87, "position": "GK" },
+        { "name": "Strahinja Pavlović", "role": "starter", "att": 54, "mid": 56, "def": 75, "position": "DEF" },
+        { "name": "Fikayo Tomori", "role": "starter", "att": 61, "mid": 63, "def": 81, "position": "DEF" },
+        { "name": "Matteo Gabbia", "role": "starter", "att": 50, "mid": 56, "def": 79, "position": "DEF" },
+        { "name": "Alexis SaeleMaekers", "role": "starter", "att": 75, "mid": 77, "def": 64, "position": "MID" },
+        { "name": "Pervis Estupiñán", "role": "starter", "att": 71, "mid": 76, "def": 78, "position": "MID" },
+        { "name": "Luka Modrić", "role": "starter", "att": 80, "mid": 85, "def": 68, "position": "MID" },
+        { "name": "Ruben Loftus-Cheek", "role": "starter", "att": 78, "mid": 78, "def": 76, "position": "MID" },
+        { "name": "Adrien Rabiot", "role": "starter", "att": 81, "mid": 80, "def": 77, "position": "MID" },
+        { "name": "Christian Pulisic", "role": "starter", "att": 83, "mid": 81, "def": 49, "position": "ATT" },
+        { "name": "Rafael Leão", "role": "starter", "att": 83, "mid": 81, "def": 36, "position": "ATT" },
+        { "name": "Santiago Giménez", "role": "sub", "att": 79, "mid": 72, "def": 48, "position": "ATT" },
+        { "name": "Youssouf Fofana", "role": "sub", "att": 74, "mid": 78, "def": 79, "position": "MID" },
+        { "name": "Samuele Ricci", "role": "sub", "att": 72, "mid": 76, "def": 74, "position": "DEF" },
+        { "name": "Ardon Jashari", "role": "sub", "att": 72, "mid": 73, "def": 75, "position": "ATT" }
+      ],
+      "legends": [
+        { "name": "Dida", "position": "GK", "att": 35, "mid": 40, "def": 90, "price": 500 },
+        { "name": "Paolo Maldini", "position": "DEF", "att": 70, "mid": 80, "def": 95, "price": 600 },
+        { "name": "Andrea Pirlo", "position": "MID", "att": 85, "mid": 95, "def": 75, "price": 800 },
+        { "name": "Marco van Basten", "position": "ATT", "att": 95, "mid": 85, "def": 60, "price": 1000 }
+      ]
+    },
+    "psg": {
+      "name": "PSG",
+      "players": [
+        { "name": "Lucas Chavalier", "role": "starter", "att": 32, "mid": 28, "def": 84, "position": "GK" },
+        { "name": "Achraf Hakimi", "role": "starter", "att": 83, "mid": 81, "def": 87, "position": "DEF" },
+        { "name": "Marquinhos", "role": "starter", "att": 70, "mid": 74, "def": 87, "position": "DEF" },
+        { "name": "William Pacho", "role": "starter", "att": 57, "mid": 62, "def": 85, "position": "DEF" },
+        { "name": "Nuno Mendes", "role": "starter", "att": 79, "mid": 78, "def": 84, "position": "DEF" },
+        { "name": "Vitinha", "role": "starter", "att": 84, "mid": 87, "def": 72, "position": "MID" },
+        { "name": "João Neves", "role": "starter", "att": 78, "mid": 83, "def": 80, "position": "MID" },
+        { "name": "Fabián Ruiz", "role": "starter", "att": 79, "mid": 83, "def": 73, "position": "MID" },
+        { "name": "Ousmane Dembélé", "role": "starter", "att": 89, "mid": 86, "def": 52, "position": "ATT" },
+        { "name": "Khvicha Kvaratskhelia", "role": "starter", "att": 85, "mid": 84, "def": 60, "position": "ATT" },
+        { "name": "Desire Doué", "role": "starter", "att": 84, "mid": 81, "def": 57, "position": "ATT" },
+        { "name": "Bradley Barcola", "role": "sub", "att": 82, "mid": 79, "def": 43, "position": "ATT" },
+        { "name": "Warren Zaïre-Emery", "role": "sub", "att": 76, "mid": 78, "def": 74, "position": "MID" },
+        { "name": "Gonçalo Ramos", "role": "sub", "att": 79, "mid": 69, "def": 52, "position": "ATT" },
+        { "name": "Presnel Kimpembe", "role": "sub", "att": 58, "mid": 65, "def": 77, "position": "DEF" }
+      ],
+      "legends": [
+        { "name": "Bernard Lama", "position": "GK", "att": 35, "mid": 40, "def": 88, "price": 500 },
+        { "name": "Thiago Silva", "position": "DEF", "att": 70, "mid": 75, "def": 92, "price": 600 },
+        { "name": "Ronaldinho", "position": "MID", "att": 90, "mid": 95, "def": 70, "price": 800 },
+        { "name": "Zlatan Ibrahimović", "position": "ATT", "att": 92, "mid": 85, "def": 70, "price": 1000 }
+      ]
+    }
+  }

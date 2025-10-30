@@ -1,7 +1,8 @@
-<section class="teams">
+<div class="neon-background"></div>
+<section class="teams neon-page-content">
   <button type="button" class="back" routerLink="/" appUiSound>← Back</button>
   <div class="grid">
-    <button class="team" *ngFor="let t of teams" type="button" appUiSound>
+    <button class="team" *ngFor="let t of teams" type="button" (click)="selectTeam(t)" appUiSound>
       <img class="logo" [src]="t.badge" [alt]="t.name + ' badge'" (error)="onBadgeError(t, $event)">
       <span class="label">{{ t.name }}</span>
     </button>

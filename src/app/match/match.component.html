@@ -1,0 +1,219 @@
+<div class="neon-background"></div>
+<div class="match-container neon-page-content" *ngIf="isMatchActive() || !isMatchActive()">
+  <!-- Time Meter -->
+  <div class="time-meter">
+    <div class="time-display">
+      <span class="time-text">{{ getTimeDisplay() }}</span>
+      <span class="quarter-text">{{ getQuarterDisplay() }}</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="getTimeProgress()"></div>
+      <div class="progress-cursor" [style.left.%]="getTimeProgress()"></div>
+    </div>
+    <div class="time-labels">
+      <span>0'</span>
+      <span>22.5'</span>
+      <span>45'</span>
+      <span>67.5'</span>
+      <span>90'</span>
+    </div>
+  </div>
+
+  <!-- Team Badges -->
+  <div class="teams-section">
+    <div class="team-badge home-team">
+      <img [src]="homeTeam()?.badge" [alt]="homeTeam()?.name + ' badge'" class="team-logo">
+      <!-- Home team scorers -->
+      <div class="scorers-display" *ngIf="getHomeScorers().length > 0">
+        <div class="scorer" *ngFor="let scorer of getHomeScorers()">
+          <span class="scorer-name">{{ scorer.playerName }}</span>
+          <div class="goals-balls">
+            <span class="goal-ball" *ngFor="let goal of getGoalBalls(scorer.goals)">⚽</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="score-display">
+      <div class="score">{{ homeScore() }} - {{ awayScore() }}</div>
+    </div>
+    
+    <div class="team-badge away-team">
+      <img [src]="awayTeam()?.badge" [alt]="awayTeam()?.name + ' badge'" class="team-logo">
+      <!-- Away team scorers -->
+      <div class="scorers-display" *ngIf="getAwayScorers().length > 0">
+        <div class="scorer" *ngFor="let scorer of getAwayScorers()">
+          <span class="scorer-name">{{ scorer.playerName }}</span>
+          <div class="goals-balls">
+            <span class="goal-ball" *ngFor="let goal of getGoalBalls(scorer.goals)">⚽</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Goal Notification -->
+  <div class="goal-notification" *ngIf="showGoalNotification()">
+    <div class="notification-content">
+      <span class="notification-text">{{ goalNotificationText() }}</span>
+    </div>
+  </div>
+
+  <!-- Match Controls -->
+  <div class="match-controls">
+    <button 
+      class="control-btn pause-btn" 
+      (click)="isPaused() ? resumeMatch() : pauseMatch()" 
+      appUiSound>
+      {{ isPaused() ? '▶️ Resume' : '⏸️ Pause' }}
+    </button>
+    
+    <button 
+      class="control-btn exit-btn" 
+      (click)="exitMatch()" 
+      appUiSound>
+      🚪 Exit Match
+    </button>
+  </div>
+
+  <!-- Mini-Game Triggers -->
+  <div class="mini-game-triggers" *ngIf="showAttackButton() || showDefendButton()">
+    <button 
+      *ngIf="showAttackButton()"
+      class="mini-game-btn attack-btn" 
+      (click)="onAttackClick()" 
+      appUiSound>
+      ⚽ ATTACK
+    </button>
+    
+    <button 
+      *ngIf="showDefendButton()"
+      class="mini-game-btn defend-btn" 
+      (click)="onDefendClick()" 
+      appUiSound>
+      🛡️ DEFEND
+    </button>
+  </div>
+
+  <!-- Mystery Player Picker -->
+  <app-mystery-player-picker
+    *ngIf="showMysteryPicker()"
+    [players]="mysteryPlayers()"
+    (playerSelected)="onPlayerPicked($event)">
+  </app-mystery-player-picker>
+
+  <!-- Spinning Wheel for Attack Selection -->
+  <app-attack-spinning-wheel
+    *ngIf="showSpinningWheel()"
+    [config]="{ players: spinningWheelPlayers(), wheelSize: 400, colors: [] }"
+    (playerSelected)="onSpinningWheelPlayerSelected($event)"
+    (wheelClosed)="onSpinningWheelClosed()">
+  </app-attack-spinning-wheel>
+
+  <!-- Mini-Game Host Overlay (mount target) -->
+  <app-minigame-host [visible]="miniGameActive()">
+    <app-attack-through-ball 
+      *ngIf="activeAttackConfig"
+      [config]="activeAttackConfig"
+      (result)="onAttackMiniGameResult($event)">
+    </app-attack-through-ball>
+
+    <app-defend-timed-tackle
+      *ngIf="activeDefendConfig"
+      [config]="activeDefendConfig"
+      (result)="onDefendMiniGameResult($event)">
+    </app-defend-timed-tackle>
+
+    <app-attack-shot
+      *ngIf="activeShotConfig"
+      [config]="activeShotConfig"
+      (result)="onShotMiniGameResult($event)">
+    </app-attack-shot>
+
+    <app-attack-power-shot
+      *ngIf="activePowerShotConfig"
+      [config]="activePowerShotConfig"
+      (result)="onPowerShotMiniGameResult($event)">
+    </app-attack-power-shot>
+
+    <app-attack-dribbling-challenge
+      *ngIf="activeDribblingChallengeConfig"
+      [config]="activeDribblingChallengeConfig"
+      (result)="onDribblingChallengeResult($event)">
+    </app-attack-dribbling-challenge>
+
+    <app-defend-goalkeeper-dive
+      *ngIf="activeGoalkeeperDiveConfig"
+      [config]="activeGoalkeeperDiveConfig"
+      (result)="onGoalkeeperDiveResult($event)">
+    </app-defend-goalkeeper-dive>
+
+    <app-defend-random-dot-dive
+      *ngIf="activeRandomDotDiveConfig"
+      [config]="activeRandomDotDiveConfig"
+      (result)="onRandomDotDiveResult($event)">
+    </app-defend-random-dot-dive>
+
+    <app-defend-pass-cutting
+      *ngIf="activePassCuttingConfig"
+      [config]="activePassCuttingConfig"
+      (result)="onPassCuttingResult($event)">
+    </app-defend-pass-cutting>
+  </app-minigame-host>
+
+  <!-- Mini-Game Active Overlay -->
+  <!-- Removed old loading overlay; we now render real mini-games above -->
+
+  <!-- Match End Overlay -->
+  <div class="match-end-overlay" *ngIf="!isMatchActive() && homeScore() !== null">
+    <div class="match-end-content">
+      <h1>MATCH ENDED</h1>
+      <div class="final-score">
+        <span class="team-name">{{ homeTeam()?.name }}</span>
+        <span class="score">{{ homeScore() }} - {{ awayScore() }}</span>
+        <span class="team-name">{{ awayTeam()?.name }}</span>
+      </div>
+      
+      <!-- Return Button -->
+      <button 
+        *ngIf="showReturnButton()"
+        class="return-btn" 
+        (click)="returnToDashboard()" 
+        appUiSound>
+        Return to Dashboard
+      </button>
+      
+      <!-- Coins summary (end of match) -->
+      <div class="coins-summary-end" *ngIf="showReturnButton()">
+        <span class="coins-icon">💰</span>
+        <span class="coins-text">{{ coinsEarnedThisMatch >= 0 ? '+' : '-' }}{{ Math.abs(coinsEarnedThisMatch) }} Super Coin</span>
+      </div>
+      
+      <!-- Loading message while simulating -->
+      <p *ngIf="!showReturnButton()">Simulating remaining matches...</p>
+    </div>
+  </div>
+
+  <!-- Match Highlights Screen -->
+  <div class="highlights-overlay" *ngIf="showHighlights()">
+    <div class="highlights-content">
+      <h1>Match Highlights</h1>
+      <div class="highlights-list">
+        <div class="highlight-item" *ngFor="let highlight of matchHighlights()" 
+             [class.goal]="highlight.type === 'goal'"
+             [class.save]="highlight.type === 'save'"
+             [class.tackle]="highlight.type === 'tackle'">
+          <div class="highlight-time">{{ highlight.minute }}'</div>
+          <div class="highlight-description">{{ highlight.description }}</div>
+        </div>
+      </div>
+      
+      <button 
+        class="close-highlights-btn" 
+        (click)="closeHighlights()" 
+        appUiSound>
+        Close Highlights
+      </button>
+    </div>
+  </div>
+</div>

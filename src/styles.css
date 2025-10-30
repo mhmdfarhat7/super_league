@@ -64,3 +64,142 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Hide brand section when on dashboard routes */
+body:has(.dashboard) .brand {
+  display: none;
+}
+
+/* Hide main section when on dashboard routes */
+body:has(.dashboard) .main {
+  display: none;
+}
+
+/* Allow scrolling when on dashboard */
+body:has(.dashboard) {
+  overflow: auto;
+}
+
+
+/* Neon Background for All Pages */
+.neon-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background: 
+    /* Neon gradient base */
+    linear-gradient(45deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%),
+    /* Animated neon grid */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.03) 2px,
+      rgba(0, 255, 255, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 0, 255, 0.03) 2px,
+      rgba(255, 0, 255, 0.03) 4px
+    );
+  overflow: hidden;
+  animation: backgroundPulse 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+.neon-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* Corner neon effects */
+    radial-gradient(circle at 0% 0%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+    /* Scanning line effect */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 255, 255, 0.1) 25%,
+      rgba(255, 0, 255, 0.1) 50%,
+      rgba(255, 255, 0, 0.1) 75%,
+      transparent 100%
+    );
+  background-size: 200px 200px, 200px 200px, 200px 200px, 200px 200px, 100% 2px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 0 0;
+  animation: neonScan 3s linear infinite;
+  z-index: 1;
+}
+
+.neon-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Floating geometric shapes */
+    radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 30%, rgba(255, 0, 255, 0.1) 3px, transparent 3px),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 0, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 70% 80%, rgba(0, 255, 0, 0.1) 3px, transparent 3px),
+    radial-gradient(circle at 50% 10%, rgba(255, 0, 0, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 10% 90%, rgba(0, 0, 255, 0.1) 3px, transparent 3px);
+  background-size: 100px 100px, 120px 120px, 80px 80px, 110px 110px, 90px 90px, 100px 100px;
+  animation: floatShapes 8s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { 
+    background-position: 0% 0%, 0px 0px, 0px 0px;
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    background-position: 100% 100%, 20px 20px, 20px 20px;
+    filter: hue-rotate(20deg);
+  }
+}
+
+@keyframes neonScan {
+  0% { background-position: 0 0, 100% 0, 0 100%, 100% 100%, -100% 0; }
+  100% { background-position: 0 0, 100% 0, 0 100%, 100% 100%, 100% 0; }
+}
+
+@keyframes floatShapes {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translateY(-30px) rotate(270deg);
+    opacity: 0.7;
+  }
+}
+
+/* Content container for pages with neon background */
+.neon-page-content {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}

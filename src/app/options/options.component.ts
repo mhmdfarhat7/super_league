@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { UiSoundService } from '../sound/ui-sound.service';
 import { UiSoundDirective } from '../sound/ui-sound.directive';
@@ -17,7 +17,7 @@ export class OptionsComponent implements OnInit {
   bgVol = signal<number>(40);   // 0..100 UI scale
   sfxVol = signal<number>(100); // 0..100 UI scale
 
-  constructor(private ui: UiSoundService, private bg: BackgroundAudioService) {}
+  constructor(private ui: UiSoundService, private bg: BackgroundAudioService, private location: Location) {}
 
   ngOnInit(): void {
     // Background audio state
@@ -43,5 +43,9 @@ export class OptionsComponent implements OnInit {
     const cv = Math.max(0, Math.min(100, Math.round(v)));
     this.sfxVol.set(cv);
     this.ui.setSfxVolume(cv / 100);
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

@@ -1,0 +1,258 @@
+.dive-root { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.players-info { 
+  position: fixed; 
+  top: 112px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  z-index: 3000; 
+  display: flex;
+  gap: 20px;
+}
+
+.goalkeeper-info, .attacker-info {
+  text-align: center;
+  background: rgba(0,0,0,0.8); 
+  padding: 16px; 
+  border-radius: 12px; 
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.goalkeeper-info h3, .attacker-info h3 { 
+  color: #fff; 
+  margin-bottom: 12px; 
+  font-size: 1.2rem; 
+}
+
+.player-card { 
+  background: rgba(255,255,255,0.1); 
+  border-radius: 8px; 
+  padding: 12px; 
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.player-name { 
+  color: #fff; 
+  font-weight: bold; 
+  margin-bottom: 8px; 
+}
+
+.player-position { 
+  font-size: 0.8rem; 
+  padding: 4px 8px; 
+  border-radius: 6px; 
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.position-gk { 
+  background: #ffd700; 
+  color: #000; 
+}
+
+.position-def { 
+  background: #90ee90; 
+  color: #000; 
+}
+
+.position-mid { 
+  background: #87ceeb; 
+  color: #000; 
+}
+
+.position-att { 
+  background: #ff6b6b; 
+  color: #fff; 
+}
+
+.player-stats { 
+  color: #ccc; 
+  font-size: 0.9rem; 
+  margin-bottom: 8px; 
+}
+
+.player-stats span { 
+  margin-right: 12px; 
+}
+
+.saving-chance { 
+  color: #4CAF50; 
+  font-size: 0.9rem; 
+  font-weight: bold; 
+  text-align: center;
+  background: rgba(76, 175, 80, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.scoring-chance { 
+  color: #FF6B6B; 
+  font-size: 0.9rem; 
+  font-weight: bold; 
+  text-align: center;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.goal-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  padding: 20px;
+}
+
+.simple-goal {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border: 4px solid #ecf0f1;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0;
+  width: min(80vw, 600px);
+  aspect-ratio: 3 / 1;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.simple-goal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  background-size: 20px 20px;
+  border-radius: 8px 8px 0 0;
+  pointer-events: none;
+}
+
+.goal-header {
+  text-align: center;
+  margin-bottom: 20px;
+  z-index: 10;
+}
+
+.goal-header h3 {
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+}
+
+.goal-info {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.dive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.dive-zone {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, rgba(41, 128, 185, 0.3) 100%);
+  border: 1px solid rgba(52, 152, 219, 0.6);
+  border-radius: 4px;
+  color: #ecf0f1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.7rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.dive-zone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+}
+
+.dive-zone:hover:not(:disabled) {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+  transform: scale(1.05);
+}
+
+.dive-zone:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.dive-zone.save {
+  background: rgba(46, 204, 113, 0.9) !important;
+  border-color: #2ecc71 !important;
+  animation: savePulse 0.5s ease-in-out;
+}
+
+.dive-zone.goal {
+  background: rgba(231, 76, 60, 0.9) !important;
+  border-color: #e74c3c !important;
+  animation: goalShake 0.5s ease-in-out;
+}
+
+.zone-label {
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.zone-result {
+  font-size: 0.6rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.dive-zone.selected {
+  border-color: #f39c12;
+  background: rgba(243, 156, 18, 0.3);
+  transform: scale(1.1);
+}
+
+@keyframes savePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes goalShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}

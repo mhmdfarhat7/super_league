@@ -1,0 +1,19 @@
+<div class="neon-background"></div>
+<section class="players neon-page-content">
+  <button class="back" type="button" routerLink="/" >← Back</button>
+  <div class="clubs" *ngFor="let c of clubs()">
+    <h3 class="club-name">{{ c.name }}</h3>
+    <div class="grid">
+      <div class="player" *ngFor="let p of playersByClub()[c.id]">
+        <div class="name">{{ p.name }} <span class="role" [class.sub]="p.role==='sub'">{{ p.role }}</span></div>
+        <div class="stats">
+          <span>ATT {{ p.att }}</span>
+          <span>MID {{ p.mid }}</span>
+          <span>DEF {{ p.def }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

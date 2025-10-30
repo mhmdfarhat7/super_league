@@ -1,0 +1,96 @@
+<div class="neon-background"></div>
+<div class="squad-management neon-page-content" *ngIf="selectedClub(); else noClub">
+  <!-- Header -->
+  <header class="squad-header">
+    <div class="club-info">
+      <img [src]="selectedClub()?.badge" [alt]="selectedClub()?.name + ' badge'" class="club-badge">
+      <div class="club-details">
+        <h1>{{ selectedClub()?.name }} - Squad Management</h1>
+        <p class="squad-count">Active Squad: {{ activeSquad().length }}/11</p>
+      </div>
+    </div>
+    <button class="back-btn" routerLink="/dashboard" appUiSound>← Back to Dashboard</button>
+  </header>
+
+  <!-- Squad Management Grid -->
+  <div class="squad-content">
+    <!-- Active Squad Section -->
+    <section class="active-squad-section">
+      <h2>Active Squad ({{ activeSquad().length }}/11)</h2>
+        <div class="squad-grid" 
+             [class.full]="activeSquad().length >= 11"
+             [class.drag-over]="isDragOverSquad"
+             (dragover)="onGridDragOver($event, 'squad')"
+             (dragleave)="onGridDragLeave($event, 'squad')"
+             (drop)="onGridDrop($event, 'squad')">
+          <div class="player-card active" 
+               *ngFor="let player of activeSquad()" 
+               [class.legend]="isLegend(player)"
+               draggable="true"
+               (dragstart)="onDragStart($event, player)"
+               (dragend)="onDragEnd($event)"
+               (dragover)="onDragOver($event)"
+               (drop)="onDrop($event, 'active')">
+            <div class="player-header">
+              <div class="player-name">{{ player.name }}</div>
+              <div class="player-position" [class]="getPlayerPositionClass(player)">{{ getPlayerPosition(player) }}</div>
+            </div>
+            <div class="player-stats">
+              <span class="stat att">{{ player.att }}</span>
+              <span class="stat mid">{{ player.mid }}</span>
+              <span class="stat def">{{ player.def }}</span>
+            </div>
+            <div class="player-actions">
+              <button class="action-btn remove" (click)="moveToBench(player)" appUiSound>Remove from Squad</button>
+            </div>
+          </div>
+        
+        <!-- Empty slots -->
+        <div class="empty-slot" *ngFor="let i of [].constructor(11 - activeSquad().length)">
+          <div class="empty-text">Empty Slot</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Available Players Section -->
+    <section class="available-players-section">
+      <h2>Available Players ({{ availablePlayers().length }})</h2>
+        <div class="players-grid"
+             [class.drag-over]="isDragOverAvailable"
+             (dragover)="onGridDragOver($event, 'available')"
+             (dragleave)="onGridDragLeave($event, 'available')"
+             (drop)="onGridDrop($event, 'available')">
+          <div class="player-card available" 
+               *ngFor="let player of availablePlayers()" 
+               [class.legend]="isLegend(player)"
+               draggable="true"
+               (dragstart)="onDragStart($event, player)"
+               (dragend)="onDragEnd($event)"
+               (dragover)="onDragOver($event)"
+               (drop)="onDrop($event, 'available')">
+            <div class="player-header">
+              <div class="player-name">{{ player.name }}</div>
+              <div class="player-position" [class]="getPlayerPositionClass(player)">{{ getPlayerPosition(player) }}</div>
+            </div>
+            <div class="player-stats">
+              <span class="stat att">{{ player.att }}</span>
+              <span class="stat mid">{{ player.mid }}</span>
+              <span class="stat def">{{ player.def }}</span>
+            </div>
+            <div class="player-actions">
+              <button class="action-btn add" (click)="moveToSquad(player)" appUiSound>Add to Squad</button>
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+</div>
+
+<!-- No Club Selected Template -->
+<ng-template #noClub>
+  <div class="no-club">
+    <h1>No Club Selected</h1>
+    <p>Please select a club from the teams page first.</p>
+    <button class="back-btn" routerLink="/teams" appUiSound>Go to Teams</button>
+  </div>
+</ng-template>

@@ -1,0 +1,64 @@
+<div class="neon-background"></div>
+<div class="dive-root neon-page-content">
+  <div class="players-info" *ngIf="config">
+    <div class="goalkeeper-info">
+      <h3>Make the Save!</h3>
+      <div class="player-card">
+        <div class="player-name">{{ config.goalkeeper.name }}</div>
+        <div class="player-position position-gk">GK</div>
+        <div class="player-stats">
+          <span>ATT: {{ config.goalkeeper.att }}</span>
+          <span>MID: {{ config.goalkeeper.mid }}</span>
+          <span>DEF: {{ config.goalkeeper.def }}</span>
+        </div>
+        <div class="saving-chance">
+          Saving Chance: {{ getDivingChance() }}%
+        </div>
+      </div>
+    </div>
+    
+    <div class="attacker-info">
+      <h3>vs Attacker</h3>
+      <div class="player-card">
+        <div class="player-name">{{ config.opponentAttacker.name }}</div>
+        <div class="player-position" [class]="'position-' + config.opponentAttacker.position.toLowerCase()">
+          {{ config.opponentAttacker.position }}
+        </div>
+        <div class="player-stats">
+          <span>ATT: {{ config.opponentAttacker.att }}</span>
+          <span>MID: {{ config.opponentAttacker.mid }}</span>
+          <span>DEF: {{ config.opponentAttacker.def }}</span>
+        </div>
+        <div class="scoring-chance">
+          Scoring Chance: {{ 100 - getDivingChance() }}%
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="goal-container">
+    <div class="goal-header">
+      <h3>Choose Your Dive Direction</h3>
+      <div class="goal-info">Click on any zone to dive</div>
+    </div>
+    
+    <div class="simple-goal">
+      <div class="dive-grid">
+        <button 
+          *ngFor="let spot of diveSpots; let i = index"
+          class="dive-zone"
+          [class.save]="spot.revealed && spot.isSave"
+          [class.goal]="spot.revealed && !spot.isSave"
+          [class.selected]="spot.selected"
+          [class.disabled]="diveTaken"
+          (click)="onDive(i)"
+          [disabled]="diveTaken">
+          <div class="zone-label">{{ getZoneLabel(i) }}</div>
+          <div class="zone-result" *ngIf="spot.revealed">
+            {{ spot.isSave ? '🥅 SAVE!' : '⚽ GOAL!' }}
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

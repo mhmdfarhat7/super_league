@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UiSoundDirective } from '../sound/ui-sound.directive';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { GameStateService } from '../game/game-state.service';
 
 type Team = {
   id: string;
@@ -17,6 +18,9 @@ type Team = {
   imports: [CommonModule, UiSoundDirective, RouterModule]
 })
 export class TeamsComponent {
+  private gameState = inject(GameStateService);
+  private router = inject(Router);
+  
   teams: Team[] = [
     { id: 'barcelona', name: 'Barcelona', badge: '/images/FC_Barcelona_(crest).svg.png' },
     { id: 'real-madrid', name: 'Real Madrid', badge: '/images/Real_Madrid_CF.svg.png' },
@@ -67,6 +71,19 @@ export class TeamsComponent {
       team.badge = generic;
       img.src = generic;
     }
+  }
+
+  selectTeam(team: Team) {
+    // Convert team to club format and select it
+    const club = {
+      id: team.id,
+      name: team.name,
+      badge: team.badge
+    };
+    this.gameState.selectClub(club);
+    
+    // Navigate to dashboard after selecting club
+    this.router.navigate(['/dashboard']);
   }
 }
 

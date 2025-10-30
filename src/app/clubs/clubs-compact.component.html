@@ -1,7 +1,9 @@
+<div class="neon-background"></div>
 <section class="clubs">
   <button type="button" class="back" routerLink="/" appUiSound>← Back</button>
+  <h1 class="clubs-title">Choose Your Team</h1>
   <div class="grid">
-    <button class="club" *ngFor="let c of clubs" type="button" appUiSound [routerLink]="['/scene', c.id]">
+    <button class="club" *ngFor="let c of clubs" type="button" [routerLink]="['/scene', c.id]" appUiSound>
       <img class="logo" [src]="c.badge" [alt]="c.name + ' badge'">
       <span class="label">{{ c.name }}</span>
     </button>
